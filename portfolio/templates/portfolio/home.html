@@ -1,0 +1,68 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+
+
+{% load static%}
+
+{% comment %} 
+<section class="p-5">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div>
+                
+                <div class="card bg-white boarder-white text-dark mb-20">   
+                    <div class="card-body text-center">
+                        <h1 class="card-title mb-3">Wecome to my site!</h1>
+                        <p class="card-text">{{ project.description }}</p>
+                    </div>
+                    <img src="{% static 'portfolio/progress.jpg/' %}"  width=500, height = 600, class="rounded mx-auto d-block" >
+                </div> <!-- end card div-->    
+
+            </div>
+        </div>
+    </div>
+</section>  {% endcomment %}
+
+
+
+
+
+<div class="text-center g-4">
+    <h1  style="text-align:center;">Wecome to my site!</h1>   
+    {% comment %} <a href="{% url 'blog:all_blogs' %}" style="text-align:center;">All Blogs</a>
+    <br> {% endcomment %}
+    <img src="{% static 'portfolio/Sedona.jpg/' %}" width=500, height = 600, class="rounded mx-auto d-block" ></img>
+    {% comment %} <br>
+    <a href="{% static 'portfolio/Resume.pdf/' %}">Resume</a>
+    <br> {% endcomment %}
+</div>
+<!--boxes -->
+
+<section class="p-5">
+    <div class="container">
+        <div class="row text-center g-4">
+            {% comment %} this is where the loop starts {% endcomment %}
+            {% for project in projects %}
+            <div class="col-md">
+                
+                <div class="card bg-dark text-light">   {% comment %}took this out: style="width: 18rem;" {% endcomment %}
+                    <div class="card-body text-center">
+                        <h1 class="card-title mb-3">{{ project.title }}</h1>
+                        <p class="card-text">{{ project.description }}</p>
+                    </div>
+                    <a href="{{ project.url }}">
+                        <img src="{{ project.image.url}}" class="card-img">
+                    </a>    
+                </div> <!-- end card div-->                
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section> 
+{% comment %} end projects section {% endcomment %}
+
+
+
+{% endblock content %}
