@@ -6,46 +6,57 @@
 
 {% load static%}
 
-{% comment %} 
-<section class="p-5">
-    <div class="container">
-        <div class="row text-center g-4">
-            <div>
-                
-                <div class="card bg-white boarder-white text-dark mb-20">   
-                    <div class="card-body text-center">
-                        <h1 class="card-title mb-3">Wecome to my site!</h1>
-                        <p class="card-text">{{ project.description }}</p>
-                    </div>
-                    <img src="{% static 'portfolio/progress.jpg/' %}"  width=500, height = 600, class="rounded mx-auto d-block" >
-                </div> <!-- end card div-->    
+{% comment %} showcase begin {% endcomment %}
+<section class="bg-dark text-light text-center text-sm-start">
 
-            </div>
-        </div>
+  <div class="container">
+    <div class='d-sm-flex align-items-center justify-content-between'>
+      <div>
+        <h1>Your next <span class="text-warning">Software Developer</span></h1>
+        <p class="lead my-4">Highly driven, motivated, and multitalented professional
+          with a bachelor’s degree in computer science and concentration in
+          software development.
+        </p>
+        <button class="btn btn-primary btn-lg">
+          Resume
+        </button>
+      </div>
+
+      <img src="{% static 'portfolio/undraw.svg' %}" class='img-fluid w-50 p-3 d-none d-md-block' alt="Erik's Logo">
+
     </div>
-</section>  {% endcomment %}
+  </div>
 
+</section>
 
+{% comment %} showcase end {% endcomment %}
 
-
-
-<div class="text-center g-4">
-    <h1  style="text-align:center;">Wecome to my site!</h1>   
-    {% comment %} <a href="{% url 'blog:all_blogs' %}" style="text-align:center;">All Blogs</a>
-    <br> {% endcomment %}
-    <img src="{% static 'portfolio/Sedona.jpg/' %}" width=500, height = 600, class="rounded mx-auto d-block" ></img>
-    {% comment %} <br>
-    <a href="{% static 'portfolio/Resume.pdf/' %}">Resume</a>
-    <br> {% endcomment %}
+<div class="row justify-content-center my-3">
+  <div class="col-5">
+    <img src="{% static 'portfolio/sedona.jpg' %}" class="img-fluid rounded mx-auto d-block">
+  </div>
 </div>
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">
+    <h1 id="hometext" class="font-weight-bold">Erik Castillo <br> Software Engineer <br> UofA Grad <br> Magna Cum Laude</h1>
+  </div>
+</div>
+
+
+{% comment %} second half {% endcomment %}
+
+
 <!--boxes -->
 
-<section class="p-5">
-    <div class="container">
+<section class="container">
+<h2 class="mt-5">Portfolio</h2>
+
+    <div class="">
         <div class="row text-center g-4">
             {% comment %} this is where the loop starts {% endcomment %}
             {% for project in projects %}
-            <div class="col-md">
+            <div class="col-lg-4 col-md-6 mb-2">
                 
                 <div class="card bg-dark text-light">   {% comment %}took this out: style="width: 18rem;" {% endcomment %}
                     <div class="card-body text-center">
